@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -z "${FIREBASE_TOKEN}" ]; then
     echo "FIREBASE_TOKEN is missing"
@@ -10,4 +10,5 @@ if [ -z "${TARGET}" ]; then
     TARGET = "default"
 fi
 
-firebase deploy --token ${FIREBASE_TOKEN} -P ${TARGET} --only functions 
+firebase use ${TARGET} --token ${FIREBASE_TOKEN}
+firebase deploy --only functions --token ${FIREBASE_TOKEN}
